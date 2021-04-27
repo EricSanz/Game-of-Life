@@ -1,0 +1,23 @@
+{
+  "name": "Game-of-Life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricSanz/Game-of-Life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricSanz/Game-of-Life/issues"
+  },
+  "homepage": "https://github.com/EricSanz/Game-of-Life#readme",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}
