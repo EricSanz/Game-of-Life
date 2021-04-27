@@ -9,6 +9,16 @@
 </head>
 <body>
     <header>
+        <div class="title-container">
+            <h1>Game Of Life</h1>
+            <div class="count-container">
+                <p>Cicles count:</p>
+                <span id="cicles-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <div class= "canvas-container">
         <div class= "button-container">
             <button class="buttons" id="play-button">Play</button>
             <button class="buttons" id="pause-button">Pause</button>
@@ -17,16 +27,7 @@
             <button class="buttons" id="clear-button">Clear</button>
             <input type="text" id ="speed-input" class="speed" placeholder="Speed">
         </div>
-    </header>
-    <div class="title-container">
-        <h1>Game Of Life</h1>
-        <div class="count-container">
-            <p>Cicles count:</p>
-            <span id="cicles-count">0</span>
-        </div>
-    </div>
-    <div class= "canvas-container">
-        <canvas id = "canvas"></canvas>
+        <canvas id = "canvas" width="1300" height="600"></canvas>
     </div>
 
     <script src="game-of-life.js"></script>
