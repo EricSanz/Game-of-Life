@@ -33,5 +33,19 @@ function cellsAlive() {
             Math.random() > 0.5 ? cells[x][y] = true : cells[x][y] = false;
         }
     }
-}
+};
+
+function printCells() {
+    context.fillStyle = 'black';
+    context.fillRect(0, 0, resolution, resolution);
+
+    for (let y = 0; y < resolution; y++) {
+        for (let x = 0; x < resolution; x++) {
+            if (cells[x][y]) {
+                context.fillRect(x, y, 0.7, 0.7);
+                context.fillStyle = 'olive';
+            }
+        }
+    }
+};
 
