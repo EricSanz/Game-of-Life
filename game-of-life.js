@@ -94,3 +94,11 @@ function setSpeed() {
        } 
     }, speed.value);
 };
+
+function playGame() {
+    if (simulationRunning === false) {
+        simulationRunning = true;
+        settingUp();
+        setSpeed();
+    }
+};
