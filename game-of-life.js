@@ -63,3 +63,19 @@ function getNeighbours(x, y) {
 
     return aliveNeighbours;
 };
+
+function nextGeneration() {
+    let newCells = createCells();
+    for (let y = 0; y < resolution; y++) {
+        for (let x = 0; x < resolution; x++) {
+            let neighbours = getNeighbours(x, y);
+            if (cells[x][y] && (neighbours === 2 || neighbours === 3)) {
+                newCells[x][y] = true;
+            } else if (!cells[x][y] && neighbours === 3) {
+                newCells[x][y] = true;
+            }
+        }
+    };
+
+    return cells = newCells;
+};
