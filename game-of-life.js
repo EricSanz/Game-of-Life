@@ -12,6 +12,7 @@ function settingUp() {
     context.scale(scale, scale);
     cells = createCells();
     cellsAlive();
+    printCells();
 };
 
 function createCells() {
@@ -49,3 +50,16 @@ function printCells() {
     }
 };
 
+function getNeighbours(x, y) {
+    let aliveNeighbours = 0;
+    for (let i = - 1; i < 2; i++) {
+        for (let j = - 1; j < 2; j++) {
+            if (j === 0 && i === 0) continue;
+            if (x + i < 0 || x + i > resolution - 1) continue;
+            if (y + j < 0 || y + j > resolution - 1) continue;
+            if (cells[x + i][y + j]) aliveNeighbours++;
+        }
+    };
+
+    return aliveNeighbours;
+};
