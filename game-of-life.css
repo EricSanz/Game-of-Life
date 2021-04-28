@@ -1,5 +1,6 @@
 body {
     background-color: rgb(26, 38, 51);
+    /* background-color: black; */
     margin: 50px;
 }
 
@@ -10,9 +11,8 @@ header {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
     color: snow;
-    /* margin-left: 150px; */
 }
 
 .count-container {
@@ -57,7 +57,7 @@ h1 {
 }
 
 #canvas {
-    background: snow;
+    background: black;
     margin: 10px;
 }
 

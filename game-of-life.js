@@ -85,7 +85,7 @@ function nextGeneration() {
 };
 
 function setSpeed() {
-    speed.value ? speed.value : 150;
+    speed.value ? speed.value : speed.value = 150;
 
     speedInterval = setInterval(() => {
        if (simulationRunning) {
