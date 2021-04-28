@@ -1,10 +1,14 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
+const playButton = document.getElementById('play-button');
+const speed = document.getElementById('speed-input');
 const width = 1300;
 const height = 600;
 const size = width + height;
 const scale = 6;
 const resolution = Math.round(size / scale);
+let speedInterval;
+let simulationRunning = false;
 
 function settingUp() {
     canvas.width = width;
@@ -78,4 +82,15 @@ function nextGeneration() {
     };
 
     return cells = newCells;
+};
+
+function setSpeed() {
+    speed.value ? speed.value : 150;
+
+    speedInterval = setInterval(() => {
+       if (simulationRunning) {
+           nextGeneration();
+           printCells();
+       } 
+    }, speed.value);
 };
