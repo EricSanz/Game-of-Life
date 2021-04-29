@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const playButton = document.getElementById('play-button');
 const speed = document.getElementById('speed-input');
+const generations = document.getElementById('generations-count');
 const width = 1300;
 const height = 600;
 const size = width + height;
@@ -29,6 +30,7 @@ function createCells() {
         rows[x] = cols;
     };
 
+    generations.innerText++;
     return rows;
 };
 
@@ -98,6 +100,7 @@ function setSpeed() {
 function playGame() {
     if (simulationRunning === false) {
         simulationRunning = true;
+        generations.innerText = 0;
         settingUp();
         setSpeed();
     }
