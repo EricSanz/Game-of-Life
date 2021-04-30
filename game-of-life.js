@@ -10,6 +10,7 @@ const scale = 6;
 const resolution = Math.round(size / scale);
 let speedInterval;
 let simulationRunning = false;
+let playing = false;
 
 function settingUp() {
     canvas.width = width;
@@ -107,9 +108,20 @@ function resetGame() {
     context.fillStyle = 'white';
     context.fillRect(0, 0, resolution, resolution);
     stopInterval();
+    playing = false;
+};
+
+function stepByStep() {
+    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+
+    if (playing) {
+        nextGeneration();
+        printCells();
+    }
 };
 
 function playGame() {
+    playing = true;
     if (simulationRunning === false) {
         simulationRunning = true;
         generations.innerText = 0;
