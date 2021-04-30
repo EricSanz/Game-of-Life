@@ -1,6 +1,7 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const playButton = document.getElementById('play-button');
+const pauseButton = document.getElementById('pause-button');
 const speed = document.getElementById('speed-input');
 const generations = document.getElementById('generations-count');
 const width = 1300;
@@ -117,11 +118,19 @@ function stepByStep() {
     if (playing) {
         nextGeneration();
         printCells();
+        pauseButton.innerText = 'Resume';
     }
+};
+
+function pauseGame() {
+    simulationRunning = !simulationRunning;
+    simulationRunning ? pauseButton.innerText = 'Pause' : pauseButton.innerText = 'Resume';
 };
 
 function playGame() {
     playing = true;
+    playButton.style.visibility = 'hidden';
+    pauseButton.innerText = 'Pause';
     if (simulationRunning === false) {
         simulationRunning = true;
         generations.innerText = 0;
