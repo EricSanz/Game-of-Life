@@ -54,8 +54,13 @@ function printCells() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
             if (cells[x][y]) {
-                context.fillRect(x, y, 0.7, 0.7);
-                context.fillStyle = 'olive';
+                if (Math.random() < 0.5) {
+                    context.fillRect(x, y, 0.7, 0.7);
+                    context.fillStyle = 'lightseagreen';
+                } else {
+                    context.fillRect(x, y, 0.7, 0.7);
+                    context.fillStyle = 'olive';   
+                }
             }
         }
     }
@@ -107,17 +112,18 @@ function stopInterval() {
 };
 
 function resetGame() {
-    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+    simulationRunning ? simulationRunning = !simulationRunning : simulationRunning;
     generations.innerText = 0;
-    context.fillStyle = 'white';
+    context.fillStyle = 'black';
     context.fillRect(0, 0, resolution, resolution);
     stopInterval();
+    playButton.style.visibility = 'visible';
     playing = false;
     randomizeClicked = false;
 };
 
 function stepByStep() {
-    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+    simulationRunning ? simulationRunning = !simulationRunning : simulationRunning;
 
     if (playing) {
         nextGeneration();
@@ -128,7 +134,7 @@ function stepByStep() {
 
 function randomize() {
     randomizeClicked = true;
-    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+    simulationRunning ? simulationRunning = !simulationRunning : simulationRunning;
 
     canvas.width = width;
     canvas.height = height;
@@ -155,9 +161,12 @@ function playGame() {
     if (simulationRunning === false) {
         simulationRunning = true;
         generations.innerText = 0;
-        randomizeClicked ? setSpeed() : settingUp(), setSpeed();
-        // settingUp();
-        // setSpeed();
+        if (randomizeClicked) {
+            setSpeed();
+        } else {
+            settingUp();
+            setSpeed();
+        }
     }
 };
 
