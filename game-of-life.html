@@ -20,7 +20,14 @@
             <button class="buttons" id="play-button" onclick="playGame()">Play</button>
             <button class="buttons" id="pause-button" onclick="pauseGame()">Pause</button>
             <button class="buttons" id="step-button" onclick="stepByStep()">Step</button>
-            <button class="buttons" id="random-button">Randomize</button>
+            <!-- <button class="buttons" id="random-button">Randomize</button> -->
+            <!-- <label for="randomize" id="random">Random Options</label> -->
+            <select class="buttons randoms" name="randomize" id="random">
+                <option value="0.5">50% random</option>
+                <option value="0.7">30% random</option>
+                <option value="0.8">20% random</option>
+                <option value="0.9">10% random</option>
+            </select>
             <button class="buttons" id="clear-button" onclick="resetGame()">Clear</button>
             <input type="text" id ="speed-input" class="speed" placeholder="Speed">
         </div>

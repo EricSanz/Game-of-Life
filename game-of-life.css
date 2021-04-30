@@ -56,6 +56,10 @@ h1 {
     outline: none;
 }
 
+.randoms {
+    padding-left: 28px;
+}
+
 #canvas {
     background: black;
     margin: 10px;

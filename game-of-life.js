@@ -4,6 +4,7 @@ const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
 const speed = document.getElementById('speed-input');
 const generations = document.getElementById('generations-count');
+const selectRandom = document.getElementById('random');
 const width = 1300;
 const height = 600;
 const size = width + height;
@@ -12,6 +13,8 @@ const resolution = Math.round(size / scale);
 let speedInterval;
 let simulationRunning = false;
 let playing = false;
+let random;
+let randomizeClicked = false;
 
 function settingUp() {
     canvas.width = width;
@@ -39,7 +42,7 @@ function createCells() {
 function cellsAlive() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
-            Math.random() > 0.5 ? cells[x][y] = true : cells[x][y] = false;
+            Math.random() > random ? cells[x][y] = true : cells[x][y] = false;
         }
     }
 };
@@ -110,6 +113,7 @@ function resetGame() {
     context.fillRect(0, 0, resolution, resolution);
     stopInterval();
     playing = false;
+    randomizeClicked = false;
 };
 
 function stepByStep() {
@@ -122,6 +126,22 @@ function stepByStep() {
     }
 };
 
+function randomize() {
+    randomizeClicked = true;
+    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+
+    canvas.width = width;
+    canvas.height = height;
+    context.scale(scale, scale);
+
+    generations.innerText = -1;
+    stopInterval();
+    cells = createCells();
+    cellsAlive();
+    printCells();
+    playButton.style.visibility = 'visible';
+};
+
 function pauseGame() {
     simulationRunning = !simulationRunning;
     simulationRunning ? pauseButton.innerText = 'Pause' : pauseButton.innerText = 'Resume';
@@ -129,12 +149,19 @@ function pauseGame() {
 
 function playGame() {
     playing = true;
+    random = 0.5;
     playButton.style.visibility = 'hidden';
     pauseButton.innerText = 'Pause';
     if (simulationRunning === false) {
         simulationRunning = true;
         generations.innerText = 0;
-        settingUp();
-        setSpeed();
+        randomizeClicked ? setSpeed() : settingUp(), setSpeed();
+        // settingUp();
+        // setSpeed();
     }
 };
+
+selectRandom.addEventListener('click', (event) => {
+    random = event.target.value;
+    randomize();
+})
