@@ -97,6 +97,18 @@ function setSpeed() {
     }, speed.value);
 };
 
+function stopInterval() {
+    clearInterval(speedInterval);
+};
+
+function resetGame() {
+    simulationRunning ? simulationRunning = !simulationRunning : !simulationRunning;
+    generations.innerText = 0;
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, resolution, resolution);
+    stopInterval();
+};
+
 function playGame() {
     if (simulationRunning === false) {
         simulationRunning = true;
