@@ -13,3 +13,7 @@ If you want to know more about it follow <a href="https://en.wikipedia.org/wiki/
 - BEM.
 
 ## Preview
+
+https://user-images.githubusercontent.com/67970737/145591369-0ad05e1e-8aef-428f-80bb-47f4bd31dd38.mp4
+
+
