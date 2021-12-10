@@ -57,11 +57,13 @@ h1 {
 
 .randoms {
     padding-left: 28px;
+    appearance: none
 }
 
 #canvas {
     background: black;
     margin: 10px;
+    border-radius: 1em;
 }
 
 .speed {
@@ -70,5 +72,6 @@ h1 {
     height: 30px;
     outline: none;
     border: none;
-    padding-left: 10px;
+    text-align: center;
+    font-weight: bold;
 }
